@@ -1,0 +1,22 @@
+{
+  "name": "cypress_automation_api",
+  "version": "1.0.0",
+  "description": "This is an api project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ykrishna99/Cypress_Automation_API.git"
+  },
+  "author": "Krishna Rao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ykrishna99/Cypress_Automation_API/issues"
+  },
+  "homepage": "https://github.com/ykrishna99/Cypress_Automation_API#readme",
+  "devDependencies": {
+    "cypress": "^9.6.1"
+  }
+}
