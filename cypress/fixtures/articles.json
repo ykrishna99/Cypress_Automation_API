@@ -1,0 +1,43 @@
+{
+    "articles": [
+        {
+            "slug": "cypress-kh8mck",
+            "title": "Cypress",
+            "description": "Cypress Automation Tool",
+            "body": "It is very good tool",
+            "createdAt": "2022-05-16T09:44:44.837Z",
+            "updatedAt": "2022-05-16T09:44:44.837Z",
+            "tagList": [
+                "cypress"
+            ],
+            "favorited": false,
+            "favoritesCount": 2,
+            "author": {
+                "username": "sathvi",
+                "bio": null,
+                "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
+                "following": false
+            }
+        },
+        {
+            "slug": "Selenium-rgbjd8",
+            "title": "Selenium",
+            "description": "Selenium Automation Tool",
+            "body": "It is very good tool",
+            "createdAt": "2022-05-16T09:43:41.670Z",
+            "updatedAt": "2022-05-16T09:43:41.670Z",
+            "tagList": [
+                "selenium"
+            ],
+            "favorited": false,
+            "favoritesCount": 5,
+            "author": {
+                "username": "sathvi",
+                "bio": null,
+                "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
+                "following": false
+            }
+        }        
+    ],
+    "articlesCount": 2
+}
