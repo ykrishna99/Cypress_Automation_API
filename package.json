@@ -11,8 +11,11 @@
     "prereport": "npm run delete:reports",
     "report": "cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json",
     "postreport": "npm run combine:reports",
-    "cypress:run": "npx cypress run && npm run postreport",
-    "cypress:e2e": "npm run cypress:run && npm run mochawesome:merge"
+    "cypress:run": "npx cypress run --headed && npm run postreport",
+    "cypress:e2e": "npm run cypress:run && npm run mochawesome:merge",
+    "cy:run:chrome": "npm run cypress:e2e -- --browser chrome",
+    "cy:run:firefox": "npm run cypress:e2e -- --browser firefox",
+    "cy:run:edge": "npm run cypress:e2e -- --browser edge"
   },
   "repository": {
     "type": "git",
