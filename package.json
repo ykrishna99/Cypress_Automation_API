@@ -4,7 +4,15 @@
   "description": "This is an api project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "delete:reports": "rm cypress/results/* || true",
+    "combine:reports": "jrm cypress/results/combined-report.xml \"cypress/results/*.xml\"",
+    "mochawesome:merge":"npx mochawesome-merge \"cypress/results/*.json\" > mochawesome.json && npx marge mochawesome.json",
+    "prereport": "npm run delete:reports",
+    "report": "cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json",
+    "postreport": "npm run combine:reports",
+    "cypress:run": "npx cypress run && npm run postreport",
+    "cypress:e2e": "npm run cypress:run && npm run mochawesome:merge"
   },
   "repository": {
     "type": "git",
@@ -17,6 +25,14 @@
   },
   "homepage": "https://github.com/ykrishna99/Cypress_Automation_API#readme",
   "devDependencies": {
-    "cypress": "^9.6.1"
-  }
+    "cypress": "^9.6.1",
+    "cypress-multi-reporters": "^1.6.0",
+    "junit-report-merger": "^3.0.5",
+    "mocha": "^10.0.0",
+    "mocha-junit-reporter": "^2.0.2",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0"
+  },
+  "dependencies": {}
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="8.5670" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2022-05-18T07:15:55" tests="0" file="cypress/integration/ConduitApp/Tags.spec.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Tags Suite" timestamp="2022-05-18T07:15:55" tests="2" time="8.4670" failures="0">
+    <testcase name="Tags Suite Home Page Tags test" time="3.7380" classname="Home Page Tags test">
+    </testcase>
+    <testcase name="Tags Suite Post Login Tags test" time="4.6930" classname="Post Login Tags test">
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,550 @@
+{
+  "stats": {
+    "suites": 8,
+    "tests": 10,
+    "passes": 10,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-05-18T06:14:20.181Z",
+    "end": "2022-05-18T07:16:04.208Z",
+    "duration": 74259,
+    "testsRegistered": 10,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2103c199-1ee4-4215-b310-4b002d9f2c51",
+      "title": "",
+      "fullFile": "cypress/integration/ConduitApp/DeleteArticle.spec.js",
+      "file": "cypress/integration/ConduitApp/DeleteArticle.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fd8db1b3-9c14-4696-81e2-c5193f51edd1",
+          "title": "Delete an Article Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Delete Article",
+              "fullTitle": "Delete an Article Suite Delete Article",
+              "timedOut": null,
+              "duration": 12408,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept('DELETE', '**/articles/*').as('deleteArticle');\ncy.contains('Global Feed').click();\ncy.get('h1').first().click();\ncy.wait(5000);\ncy.contains(' Delete Article').first().click();\ncy.wait('@deleteArticle').then(interception => {\n  console.log(interception);\n  expect(interception.response.statusCode).equal(204);\n  expect(interception.response.body).equal('');\n  expect(interception.request.url).equal(interception.response.url);\n});",
+              "err": {},
+              "uuid": "8da4d40a-6179-4c4d-a1ec-c5e8ee247afb",
+              "parentUUID": "fd8db1b3-9c14-4696-81e2-c5193f51edd1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8da4d40a-6179-4c4d-a1ec-c5e8ee247afb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12408,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "25c3b442-edc0-440c-86e6-1949b7208058",
+      "title": "",
+      "fullFile": "cypress/integration/ConduitApp/PostNewArticle.spec.js",
+      "file": "cypress/integration/ConduitApp/PostNewArticle.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9eaafda1-8cef-4834-85ce-2a6b7713b85e",
+          "title": "New Article Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Post New Article",
+              "fullTitle": "New Article Suite Post New Article",
+              "timedOut": null,
+              "duration": 9037,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept('POST', '**/articles').as('postNewArticle');\ncy.contains('New Article').click();\ncy.get('[placeholder=\"Article Title\"]').type('Cypress');\ncy.get('[placeholder=\"What\\'s this article about?\"]').type('Cypress Automation Tool');\ncy.get('[placeholder=\"Write your article (in markdown)\"]').type('It is very good tool');\ncy.get('[placeholder=\"Enter tags\"]').type('cypress');\ncy.get('.btn-primary').click({\n  force: true\n});\ncy.wait('@postNewArticle').then(interception => {\n  console.log(interception);\n  expect(interception.request.body.article.body).to.equal('It is very good tool');\n  expect(interception.request.body.article.title).to.equal('Cypress');\n  expect(interception.response.statusCode).equal(200);\n  expect(interception.response.body.article.author.username).equal('sathvi');\n  expect(interception.response.body.article.tagList[0]).equal('cypress');\n});",
+              "err": {},
+              "uuid": "81b4fb80-4512-4e9d-a156-9f38e25c7372",
+              "parentUUID": "9eaafda1-8cef-4834-85ce-2a6b7713b85e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "81b4fb80-4512-4e9d-a156-9f38e25c7372"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9037,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "87ee2f11-ebf7-46d3-a853-a9abeab2d548",
+      "title": "",
+      "fullFile": "cypress/integration/ConduitApp/Tags.spec.js",
+      "file": "cypress/integration/ConduitApp/Tags.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c7f80860-f3d9-4720-aeca-35e89bc7fe39",
+          "title": "Tags Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Home Page Tags test",
+              "fullTitle": "Tags Suite Home Page Tags test",
+              "timedOut": null,
+              "duration": 4181,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('.sidebar .tag-list').should('contain', 'cypress').and('contain', 'automation').and('contain', 'testing');",
+              "err": {},
+              "uuid": "ceacb705-fca9-4cc9-ba24-aa2de70edf53",
+              "parentUUID": "c7f80860-f3d9-4720-aeca-35e89bc7fe39",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Post Login Tags test",
+              "fullTitle": "Tags Suite Post Login Tags test",
+              "timedOut": null,
+              "duration": 5387,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.loginToConduitApp();\ncy.get('.sidebar .tag-list').should('contain', 'cypress').and('contain', 'automation').and('contain', 'testing');",
+              "err": {},
+              "uuid": "7bc1d16c-a7b8-4e70-b662-bcc45f633227",
+              "parentUUID": "c7f80860-f3d9-4720-aeca-35e89bc7fe39",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ceacb705-fca9-4cc9-ba24-aa2de70edf53",
+            "7bc1d16c-a7b8-4e70-b662-bcc45f633227"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9568,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "3c5009de-d4c0-4c93-8116-072b609ddd47",
+      "title": "",
+      "fullFile": "cypress/integration/ConduitApp/Articles.spec.js",
+      "file": "cypress/integration/ConduitApp/Articles.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ecbf52d0-dfae-4b40-9c89-0fc7e641bde5",
+          "title": "Tags Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Get articles",
+              "fullTitle": "Tags Suite Get articles",
+              "timedOut": null,
+              "duration": 7401,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Global Feed').click();\ncy.wait(200);\ncy.get('button.btn-outline-primary').then(likes => {\n  expect(likes[0]).to.contain('2');\n  expect(likes[1]).to.contain('5');\n}); //Mocking likes count\ncy.fixture('articles').then(file => {\n  const likeLink = file.articles[1].slug;\n  cy.intercept('POST', '**/articles/' + likeLink + '/favorite', req => {\n    req.reply(file);\n  });\n  cy.get('button.btn-outline-primary').contains(5).click().should('contain', '6');\n});",
+              "err": {},
+              "uuid": "7660da17-c169-4f2f-8f77-46174e75bf5d",
+              "parentUUID": "ecbf52d0-dfae-4b40-9c89-0fc7e641bde5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7660da17-c169-4f2f-8f77-46174e75bf5d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7401,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "0eaaac00-37f8-4194-b6e5-7e4a6ba390cb",
+      "title": "",
+      "fullFile": "cypress/integration/ConduitApp/DeleteArticle.spec.js",
+      "file": "cypress/integration/ConduitApp/DeleteArticle.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "80982200-a091-4804-a80b-f568064be0d7",
+          "title": "Delete an Article Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Delete Article",
+              "fullTitle": "Delete an Article Suite Delete Article",
+              "timedOut": null,
+              "duration": 10993,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept('DELETE', '**/articles/*').as('deleteArticle');\ncy.contains('Global Feed').click();\ncy.get('h1').first().click();\ncy.wait(5000);\ncy.contains(' Delete Article').first().click();\ncy.wait('@deleteArticle').then(interception => {\n  console.log(interception);\n  expect(interception.response.statusCode).equal(204);\n  expect(interception.response.body).equal('');\n  expect(interception.request.url).equal(interception.response.url);\n});",
+              "err": {},
+              "uuid": "4b72e097-b12e-4592-b983-03909b086c0b",
+              "parentUUID": "80982200-a091-4804-a80b-f568064be0d7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4b72e097-b12e-4592-b983-03909b086c0b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10993,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "4e76a82a-54e7-48ea-a686-0ca8c389318f",
+      "title": "",
+      "fullFile": "cypress/integration/ConduitApp/PostNewArticle.spec.js",
+      "file": "cypress/integration/ConduitApp/PostNewArticle.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0ec223b5-2ac6-41ff-adf0-54ce9655f906",
+          "title": "New Article Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Post New Article",
+              "fullTitle": "New Article Suite Post New Article",
+              "timedOut": null,
+              "duration": 9038,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept('POST', '**/articles').as('postNewArticle');\ncy.contains('New Article').click();\ncy.get('[placeholder=\"Article Title\"]').type('Cypress');\ncy.get('[placeholder=\"What\\'s this article about?\"]').type('Cypress Automation Tool');\ncy.get('[placeholder=\"Write your article (in markdown)\"]').type('It is very good tool');\ncy.get('[placeholder=\"Enter tags\"]').type('cypress');\ncy.get('.btn-primary').click({\n  force: true\n});\ncy.wait('@postNewArticle').then(interception => {\n  console.log(interception);\n  expect(interception.request.body.article.body).to.equal('It is very good tool');\n  expect(interception.request.body.article.title).to.equal('Cypress');\n  expect(interception.response.statusCode).equal(200);\n  expect(interception.response.body.article.author.username).equal('sathvi');\n  expect(interception.response.body.article.tagList[0]).equal('cypress');\n});",
+              "err": {},
+              "uuid": "c7f7e1fd-a5f1-4506-8025-ed376f35333d",
+              "parentUUID": "0ec223b5-2ac6-41ff-adf0-54ce9655f906",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c7f7e1fd-a5f1-4506-8025-ed376f35333d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9038,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "33267e42-e42d-4221-8736-65eca05765e7",
+      "title": "",
+      "fullFile": "cypress/integration/ConduitApp/Tags.spec.js",
+      "file": "cypress/integration/ConduitApp/Tags.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b7d83bd7-f5e5-4a4a-879b-cc195a0c7fdb",
+          "title": "Tags Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Home Page Tags test",
+              "fullTitle": "Tags Suite Home Page Tags test",
+              "timedOut": null,
+              "duration": 3738,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('.sidebar .tag-list').should('contain', 'cypress').and('contain', 'automation').and('contain', 'testing');",
+              "err": {},
+              "uuid": "4e8dbc7f-ff81-40a6-90b4-c6eb6fc26708",
+              "parentUUID": "b7d83bd7-f5e5-4a4a-879b-cc195a0c7fdb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Post Login Tags test",
+              "fullTitle": "Tags Suite Post Login Tags test",
+              "timedOut": null,
+              "duration": 4693,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.loginToConduitApp();\ncy.get('.sidebar .tag-list').should('contain', 'cypress').and('contain', 'automation').and('contain', 'testing');",
+              "err": {},
+              "uuid": "5bac12ac-0fd8-47e3-bc8f-82a136791673",
+              "parentUUID": "b7d83bd7-f5e5-4a4a-879b-cc195a0c7fdb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4e8dbc7f-ff81-40a6-90b4-c6eb6fc26708",
+            "5bac12ac-0fd8-47e3-bc8f-82a136791673"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8431,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "808244bd-f25c-4d7b-aca4-fd2cfff58c4a",
+      "title": "",
+      "fullFile": "cypress/integration/ConduitApp/Articles.spec.js",
+      "file": "cypress/integration/ConduitApp/Articles.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c47898cc-27f1-444a-99e1-431aac9b6bdd",
+          "title": "Tags Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Get articles",
+              "fullTitle": "Tags Suite Get articles",
+              "timedOut": null,
+              "duration": 7383,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Global Feed').click();\ncy.wait(200);\ncy.get('button.btn-outline-primary').then(likes => {\n  expect(likes[0]).to.contain('2');\n  expect(likes[1]).to.contain('5');\n}); //Mocking likes count\ncy.fixture('articles').then(file => {\n  const likeLink = file.articles[1].slug;\n  cy.intercept('POST', '**/articles/' + likeLink + '/favorite', req => {\n    req.reply(file);\n  });\n  cy.get('button.btn-outline-primary').contains(5).click().should('contain', '6');\n});",
+              "err": {},
+              "uuid": "9508946f-565c-4cf2-a6ea-464ae56842e4",
+              "parentUUID": "c47898cc-27f1-444a-99e1-431aac9b6bdd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9508946f-565c-4cf2-a6ea-464ae56842e4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7383,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

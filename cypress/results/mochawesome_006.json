@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-05-18T07:15:42.378Z",
+    "end": "2022-05-18T07:15:51.794Z",
+    "duration": 9416,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4e76a82a-54e7-48ea-a686-0ca8c389318f",
+      "title": "",
+      "fullFile": "cypress/integration/ConduitApp/PostNewArticle.spec.js",
+      "file": "cypress/integration/ConduitApp/PostNewArticle.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0ec223b5-2ac6-41ff-adf0-54ce9655f906",
+          "title": "New Article Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Post New Article",
+              "fullTitle": "New Article Suite Post New Article",
+              "timedOut": null,
+              "duration": 9038,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept('POST', '**/articles').as('postNewArticle');\ncy.contains('New Article').click();\ncy.get('[placeholder=\"Article Title\"]').type('Cypress');\ncy.get('[placeholder=\"What\\'s this article about?\"]').type('Cypress Automation Tool');\ncy.get('[placeholder=\"Write your article (in markdown)\"]').type('It is very good tool');\ncy.get('[placeholder=\"Enter tags\"]').type('cypress');\ncy.get('.btn-primary').click({\n  force: true\n});\ncy.wait('@postNewArticle').then(interception => {\n  console.log(interception);\n  expect(interception.request.body.article.body).to.equal('It is very good tool');\n  expect(interception.request.body.article.title).to.equal('Cypress');\n  expect(interception.response.statusCode).equal(200);\n  expect(interception.response.body.article.author.username).equal('sathvi');\n  expect(interception.response.body.article.tagList[0]).equal('cypress');\n});",
+              "err": {},
+              "uuid": "c7f7e1fd-a5f1-4506-8025-ed376f35333d",
+              "parentUUID": "0ec223b5-2ac6-41ff-adf0-54ce9655f906",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c7f7e1fd-a5f1-4506-8025-ed376f35333d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9038,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

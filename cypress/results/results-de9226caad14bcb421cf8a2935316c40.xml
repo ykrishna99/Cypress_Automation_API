@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="7.4410" tests="1" failures="0">
+  <testsuite name="Root Suite" timestamp="2022-05-18T07:15:17" tests="0" file="cypress/integration/ConduitApp/Articles.spec.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Tags Suite" timestamp="2022-05-18T07:15:17" tests="1" time="7.2170" failures="0">
+    <testcase name="Tags Suite Get articles" time="7.4010" classname="Get articles">
+    </testcase>
+  </testsuite>
+</testsuites>
